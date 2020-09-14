@@ -2,6 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     mini_magick (4.10.1)
+    nio4r (2.5.3)
+    puma (4.3.6)
+      nio4r (~> 2.0)
     rack (2.2.3)
 
 PLATFORMS
@@ -9,6 +12,7 @@ PLATFORMS
 
 DEPENDENCIES
   mini_magick (~> 4.10)
+  puma
   rack
 
 RUBY VERSION
