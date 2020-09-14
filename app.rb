@@ -10,8 +10,8 @@ class PdfFile
     @page = page
   end
 
-  def type
-    file.type
+  def read
+    file.read
   end
 
   private
@@ -47,7 +47,7 @@ class PdfRenderApp
 
       [
         200,
-        {"Content-Type" => "text/plain"}, [file.type]
+        {"Content-Type" => "text/plain"}, [file.read]
       ]
 
     else
