@@ -11,7 +11,9 @@ class PdfFile
   end
 
   def read
-    file.read
+    file.resize("500x500")
+    file.write("/tmp/123")
+    File.open("/tmp/123").read
   end
 
   private
