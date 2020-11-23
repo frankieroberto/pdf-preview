@@ -12,6 +12,7 @@ class PdfFile
 
   def read
     file.resize("500x500")
+    file.format "png"
     file.write("/tmp/123")
     File.open("/tmp/123").read
   end
@@ -49,7 +50,7 @@ class PdfRenderApp
 
       [
         200,
-        {"Content-Type" => "text/plain"}, [file.read]
+        {"Content-Type" => "image/png"}, [file.read]
       ]
 
     else
