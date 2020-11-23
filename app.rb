@@ -12,7 +12,7 @@ class PdfFile
 
   def read
     file.resize("2000x2000")
-    file.format "png"
+    file.format("png", {density: 300})
     file.write("/tmp/123")
     File.open("/tmp/123").read
   end
