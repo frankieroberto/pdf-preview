@@ -11,7 +11,7 @@ class PdfFile
   end
 
   def read
-    file.resize("2000x2000>")
+    file.resize("2000x2000")
     file.format "png"
     file.write("/tmp/123")
     File.open("/tmp/123").read
