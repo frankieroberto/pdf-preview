@@ -11,20 +11,23 @@ class PdfFile
   end
 
   def read
-    file.resize("2000x2000")
-    file.format("png")
-    file.density 300
-    file.write("/tmp/123")
+
+    MiniMagick::Tool::Convert.new do |convert|
+      convert.verbose
+      convert.density(300)
+      convert << open(url).read
+      convert.background('white')
+      convert.alpha('remove')
+      convert << '/tmp/123'
+    end
+
     File.open("/tmp/123").read
   end
 
   private
 
-  def file
-    url = "#{ENV.fetch('ORIGIN_URL')}/#{file_name}/#{page}"
-    puts url
-    @file ||= MiniMagick::Image.open("#{ENV.fetch('ORIGIN_URL')}/#{file_name}/#{page}")
-    # @file.resize "100x100"
+  def url
+    "#{ENV.fetch('ORIGIN_URL')}/#{file_name}/#{page}"
   end
 
 end
