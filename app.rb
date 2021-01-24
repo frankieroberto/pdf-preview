@@ -22,10 +22,6 @@ class PdfFile
       convert << "png8:/tmp/123"
     end
 
-    # file.format("png")
-    # file.resize("2000x2000")
-    # file.write("/tmp/123")
-
     File.open("/tmp/123").read
   end
 
