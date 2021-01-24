@@ -11,9 +11,20 @@ class PdfFile
   end
 
   def read
-    file.format("png", {density: '400'})
-    file.resize("2000x2000")
-    file.write("/tmp/123")
+
+    MiniMagick::Tool::Convert.new do |convert|
+      convert.background "white"
+      convert.flatten
+      convert.density 150
+      convert.quality 100
+      convert << file.pages.first.path
+      convert << "png8:/tmp/123"
+    end
+
+    # file.format("png")
+    # file.resize("2000x2000")
+    # file.write("/tmp/123")
+
     File.open("/tmp/123").read
   end
 
