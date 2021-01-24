@@ -17,6 +17,7 @@ class PdfFile
       convert.flatten
       convert.density 400
       convert.quality 400
+      convert.resize("2000x2000")
       convert << file.pages.first.path
       convert << "png8:/tmp/123"
     end
