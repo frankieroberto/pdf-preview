@@ -15,8 +15,8 @@ class PdfFile
     MiniMagick::Tool::Convert.new do |convert|
       convert.background "white"
       convert.flatten
-      convert.density 150
-      convert.quality 100
+      convert.density 400
+      convert.quality 400
       convert << file.pages.first.path
       convert << "png8:/tmp/123"
     end
