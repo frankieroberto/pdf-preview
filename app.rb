@@ -58,7 +58,10 @@ class PdfRenderApp
 
       [
         200,
-        {"Content-Type" => "image/png"}, [file.read]
+        {
+          "Content-Type" => "image/png",
+          "Cache-Control" => "max-age=31536000"
+        }, [file.read]
       ]
 
     else
